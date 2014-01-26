@@ -11,10 +11,15 @@ require('./lib/config/express')(app);
 
 // Controllers
 var api = require('./lib/controllers/api'),
+    wiki = require('./lib/controllers/wiki'),
+
     index = require('./lib/controllers');
 
 // Server Routes
 app.get('/api/awesomeThings', api.awesomeThings);
+app.get('/api/wiki', wiki.page);
+app.post('/api/wiki', wiki.create);
+
 
 // Angular Routes
 app.get('/partials/*', index.partials);
